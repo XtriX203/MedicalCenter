@@ -1,0 +1,16 @@
+﻿<Window x:Class="MedicalCenter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MedicalCenter"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <TextBlock Text="Medical Center" FontSize="27" Margin="260,50,255,0" VerticalAlignment="Top" HorizontalAlignment="Center"></TextBlock>
+        <Button x:Name="_equipment" Margin="150,180,520,160" Content="Equipment" FontSize="20" Click="_equipment_Click"></Button>
+        <Button x:Name="_nurses" Margin="350,180,320,160" Content="Nurses" FontSize="20" Click="_nurses_Click"></Button>
+        <Button x:Name="_patients" Margin="550,180,100,160" Content="Patients" FontSize="20" Click="_patients_Click"></Button>
+        <Button x:Name="_room" Margin="350,300,320,43" Content="Room" FontSize="20" Click="_room_Click"></Button>
+    </Grid>
+</Window>

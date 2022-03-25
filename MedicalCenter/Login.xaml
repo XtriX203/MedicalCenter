@@ -1,0 +1,19 @@
+﻿<Window x:Class="MedicalCenter.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MedicalCenter"
+        mc:Ignorable="d"
+        Title="Login" Height="450" Width="800">
+    <Grid>
+        <TextBlock Text="username" Margin="200,100,470,280" FontSize="24"></TextBlock>
+        <TextBox x:Name="UserName" Margin="350,100,200,280"></TextBox>
+        
+        <TextBlock Text="password" Margin="200,200,470,180" FontSize="24"></TextBlock>
+        <PasswordBox x:Name="Password" Margin="350,200,200,180"></PasswordBox>
+
+        <Button x:Name="login" Margin="200,273,470,105" Content="LogIn" FontSize="24" FontWeight="Bold" Click="login_Click"></Button>
+        <Button x:Name="register" Margin="425,273,236,105" Content="Register" FontSize="24" FontWeight="Bold" Click="register_Click"></Button>
+    </Grid>
+</Window>

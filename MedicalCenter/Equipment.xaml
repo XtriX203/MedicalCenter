@@ -1,0 +1,19 @@
+﻿<Window x:Class="MedicalCenter.Equipment"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MedicalCenter"
+        mc:Ignorable="d"
+        Title="Equipment" Height="450" Width="800">
+    <Grid>
+        <DataGrid x:Name="dg" Margin="78,80,84,80" FontSize="18"></DataGrid>
+        <TextBlock Text="Equipment" FontSize="28" HorizontalAlignment="Center" VerticalAlignment="Top"></TextBlock>
+        <Button x:Name="back" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Back" FontSize="20" Click="back_Click"></Button>
+        <Button x:Name="addRow" Margin="100,10,630,350" Click="addRow_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="IconImg/add.png"></ImageBrush>
+            </Button.Background>
+        </Button>
+    </Grid>
+</Window>
