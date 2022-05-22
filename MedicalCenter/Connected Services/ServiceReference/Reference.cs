@@ -44,12 +44,238 @@ namespace MedicalCenter.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/LogIn", ReplyAction="*")]
         System.Threading.Tasks.Task<bool> LogInAsync(string username, string password);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IsInspector", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        bool IsInspector(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IsInspector", ReplyAction="*")]
+        System.Threading.Tasks.Task<bool> IsInspectorAsync(string username);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Register", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         int Register(string username, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Register", ReplyAction="*")]
         System.Threading.Tasks.Task<int> RegisterAsync(string username, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/insert", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        int insert(string sqlStatement);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/insert", ReplyAction="*")]
+        System.Threading.Tasks.Task<int> insertAsync(string sqlStatement);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/getRoomData", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        MedicalCenter.ServiceReference.RoomData getRoomData(int roomNum);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/getRoomData", ReplyAction="*")]
+        System.Threading.Tasks.Task<MedicalCenter.ServiceReference.RoomData> getRoomDataAsync(int roomNum);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetEqNames", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        MedicalCenter.ServiceReference.EqData[] GetEqNames();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetEqNames", ReplyAction="*")]
+        System.Threading.Tasks.Task<MedicalCenter.ServiceReference.EqData[]> GetEqNamesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Update", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        int Update(string columnName, string Value, string tableName, string identifier, int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Update", ReplyAction="*")]
+        System.Threading.Tasks.Task<int> UpdateAsync(string columnName, string Value, string tableName, string identifier, int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/getWeather", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string getWeather();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/getWeather", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> getWeatherAsync();
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class RoomData : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private Patient[] patientsField;
+        
+        private string nurseNameField;
+        
+        private Eq[] equipmentsField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(Order=0)]
+        public Patient[] patients {
+            get {
+                return this.patientsField;
+            }
+            set {
+                this.patientsField = value;
+                this.RaisePropertyChanged("patients");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string nurseName {
+            get {
+                return this.nurseNameField;
+            }
+            set {
+                this.nurseNameField = value;
+                this.RaisePropertyChanged("nurseName");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(Order=2)]
+        public Eq[] equipments {
+            get {
+                return this.equipmentsField;
+            }
+            set {
+                this.equipmentsField = value;
+                this.RaisePropertyChanged("equipments");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class Patient : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string nameField;
+        
+        private System.DateTime tDateField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+                this.RaisePropertyChanged("name");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public System.DateTime tDate {
+            get {
+                return this.tDateField;
+            }
+            set {
+                this.tDateField = value;
+                this.RaisePropertyChanged("tDate");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class EqData : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string nameField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+                this.RaisePropertyChanged("name");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class Eq : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string equipmentNameField;
+        
+        private int equipmenAmountField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string equipmentName {
+            get {
+                return this.equipmentNameField;
+            }
+            set {
+                this.equipmentNameField = value;
+                this.RaisePropertyChanged("equipmentName");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public int equipmenAmount {
+            get {
+                return this.equipmenAmountField;
+            }
+            set {
+                this.equipmenAmountField = value;
+                this.RaisePropertyChanged("equipmenAmount");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -111,12 +337,60 @@ namespace MedicalCenter.ServiceReference {
             return base.Channel.LogInAsync(username, password);
         }
         
+        public bool IsInspector(string username) {
+            return base.Channel.IsInspector(username);
+        }
+        
+        public System.Threading.Tasks.Task<bool> IsInspectorAsync(string username) {
+            return base.Channel.IsInspectorAsync(username);
+        }
+        
         public int Register(string username, string password) {
             return base.Channel.Register(username, password);
         }
         
         public System.Threading.Tasks.Task<int> RegisterAsync(string username, string password) {
             return base.Channel.RegisterAsync(username, password);
+        }
+        
+        public int insert(string sqlStatement) {
+            return base.Channel.insert(sqlStatement);
+        }
+        
+        public System.Threading.Tasks.Task<int> insertAsync(string sqlStatement) {
+            return base.Channel.insertAsync(sqlStatement);
+        }
+        
+        public MedicalCenter.ServiceReference.RoomData getRoomData(int roomNum) {
+            return base.Channel.getRoomData(roomNum);
+        }
+        
+        public System.Threading.Tasks.Task<MedicalCenter.ServiceReference.RoomData> getRoomDataAsync(int roomNum) {
+            return base.Channel.getRoomDataAsync(roomNum);
+        }
+        
+        public MedicalCenter.ServiceReference.EqData[] GetEqNames() {
+            return base.Channel.GetEqNames();
+        }
+        
+        public System.Threading.Tasks.Task<MedicalCenter.ServiceReference.EqData[]> GetEqNamesAsync() {
+            return base.Channel.GetEqNamesAsync();
+        }
+        
+        public int Update(string columnName, string Value, string tableName, string identifier, int id) {
+            return base.Channel.Update(columnName, Value, tableName, identifier, id);
+        }
+        
+        public System.Threading.Tasks.Task<int> UpdateAsync(string columnName, string Value, string tableName, string identifier, int id) {
+            return base.Channel.UpdateAsync(columnName, Value, tableName, identifier, id);
+        }
+        
+        public string getWeather() {
+            return base.Channel.getWeather();
+        }
+        
+        public System.Threading.Tasks.Task<string> getWeatherAsync() {
+            return base.Channel.getWeatherAsync();
         }
     }
 }

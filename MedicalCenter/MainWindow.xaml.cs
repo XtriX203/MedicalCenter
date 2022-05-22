@@ -20,35 +20,61 @@ namespace MedicalCenter
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        ServiceReference.WebService1SoapClient c = new ServiceReference.WebService1SoapClient();
+        bool IsInspector;
+        public MainWindow(bool isIns)
         {
+            this.IsInspector = isIns;
             InitializeComponent();
+            if(!isIns)
+            {
+                _users.Visibility = Visibility.Visible;
+            }
+            showWeather();
         }
 
         private void _equipment_Click(object sender, RoutedEventArgs e)
         {
-            Equipment nw = new Equipment();
+            Equipment nw = new Equipment(IsInspector);
             nw.Show();
             this.Close();
         }
 
         private void _nurses_Click(object sender, RoutedEventArgs e)
         {
-            Nurses nw = new Nurses();
+            Nurses nw = new Nurses(IsInspector);
             nw.Show();
             this.Close();
         }
 
         private void _patients_Click(object sender, RoutedEventArgs e)
         {
-            Patients nw = new Patients();
+            Patients nw = new Patients(IsInspector);
             nw.Show();
             this.Close();
         }
 
         private void _room_Click(object sender, RoutedEventArgs e)
         {
-            
+            Room nw = new Room(IsInspector);
+            nw.Show();
+            this.Close();
+        }
+
+        private void quit_Click(object sender, RoutedEventArgs e)
+        {
+            App.Current.Shutdown();
+        }
+
+        private async void showWeather()
+        {
+            temperature.Text = await c.getWeatherAsync() +" C";
+        }
+        private void _users_Click(object sender, RoutedEventArgs e)
+        {
+            Users nw = new Users();
+            nw.Show();
+            this.Close();
         }
     }
 }

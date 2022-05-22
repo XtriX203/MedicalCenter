@@ -7,11 +7,26 @@
         mc:Ignorable="d"
         Title="Patients" Height="450" Width="800">
     <Grid>
-        <DataGrid x:Name="dg" Margin="78,80,84,80" FontSize="18"></DataGrid>
+
+        <Border >
+            <Border.Background>
+                <ImageBrush ImageSource="IconImg/background2.jpg"></ImageBrush>
+            </Border.Background>
+        </Border>
+        <DataGrid x:Name="dg" Margin="78,80,84,80" FontSize="18" CellEditEnding="dg_CellEditEnding"></DataGrid>
         <TextBlock Text="Patients" FontSize="28" HorizontalAlignment="Center" VerticalAlignment="Top"></TextBlock>
         <Button x:Name="back" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Back" FontSize="20" Click="back_Click"></Button>
-        
-        
+
+        <Button x:Name="Add" Margin="527,10,206,363" Click="Add_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="IconImg/add.png"></ImageBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="DelRow" Margin="191,10,542,363" Click="DelRow_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="IconImg/delete.png"></ImageBrush>
+            </Button.Background>
+            </Button>
         
         
     </Grid>

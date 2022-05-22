@@ -22,9 +22,11 @@ namespace MedicalCenter
     public partial class Equipment : Window
     {
         ServiceReference.WebService1SoapClient c = new ServiceReference.WebService1SoapClient();
-        public Equipment()
+        bool isInspector;
+        public Equipment(bool isIns)
         {
             InitializeComponent();
+            isInspector = isIns;
             showData();
         }
 
@@ -37,14 +39,22 @@ namespace MedicalCenter
         }
         private void back_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow nw = new MainWindow();
+            MainWindow nw = new MainWindow(isInspector);
             nw.Show();
             this.Close();
         }
 
         private void addRow_Click(object sender, RoutedEventArgs e)
         {
-        
+            if (!isInspector)
+            {
+                eqAdd nw = new eqAdd();
+                nw.Show();
+            }
+            else
+            {
+                MessageBox.Show("No permission");
+            }
         }
     }
 }

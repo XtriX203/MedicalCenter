@@ -44,7 +44,7 @@ namespace DB_WEB_SERVICES
 
         public DataSet getDataSet(string tablename)
         {
-            string sql = "SELECT * FROM [" + tablename + "]";
+            string sql = "SELECT * FROM [" + tablename + "];";
             SqlCommand command = new SqlCommand(sql, this.conn);
             this.Ad = new SqlDataAdapter(command);
             DataSet dataset = new DataSet();
@@ -63,12 +63,13 @@ namespace DB_WEB_SERVICES
             dataset.Tables.Add(t);
             return dataset;
         }
-        public int Insert(string sqlstr)
+        public int executeNonQuery(string sqlstr)
         {
             OpenConn();
             this.cmd = new SqlCommand(sqlstr, this.conn);
             int num = this.cmd.ExecuteNonQuery();
             this.conn.Close();
+            //returnes the num of rows effected
             return num;
         }
     }

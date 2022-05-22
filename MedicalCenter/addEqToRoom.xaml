@@ -1,0 +1,30 @@
+﻿<Window x:Class="MedicalCenter.addEqToRoom"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MedicalCenter"
+        mc:Ignorable="d"
+        Title="addEqToRoom" Height="450" Width="800">
+    <Grid>
+        <TextBlock Margin="595,34,0,336" Text="Name:" FontSize="22" HorizontalAlignment="Left"></TextBlock>
+        <ListView x:Name="lvEqName" Margin="535,103,53,150" SelectionMode="Single" SelectionChanged="lvEqName_SelectionChanged">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <WrapPanel>
+                        <TextBlock Text="Name: " />
+                        <TextBlock Text="{Binding name}" FontWeight="Bold" />
+                    </WrapPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <TextBlock Margin="26,220,0,150" Text="RoomNum:" FontSize="22" HorizontalAlignment="Left" Width="127"></TextBlock>
+        <TextBox x:Name="roomNum" Margin="158,230,509,140"></TextBox>
+
+        <TextBlock Margin="26,130,0,240" Text="Amount:" FontSize="22" HorizontalAlignment="Left" Width="127"></TextBlock>
+        <TextBox x:Name="amount" Margin="158,130,509,240"></TextBox>
+
+        <Button x:Name="confirm" Margin="294,328,298,37" Click="confirm_Click" FontSize="24">Ok</Button>
+    </Grid>
+</Window>

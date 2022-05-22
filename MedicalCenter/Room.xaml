@@ -10,13 +10,58 @@
 
     <Grid Margin="10">
 
-        <TextBlock Text="Room" FontSize="30" Margin="260,50,255,300" HorizontalAlignment="Center"></TextBlock>
-        <StackPanel Margin="10,0,539,300" Grid.Column="0" Orientation="Vertical" HorizontalAlignment="Center" Width="223">
+        <Border >
+            <Border.Background>
+                <ImageBrush ImageSource="IconImg/background2.jpg"></ImageBrush>
+            </Border.Background>
+        </Border>
+        <Button x:Name="back" Margin="710,26,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Back" FontSize="20" Click="back_Click"></Button>
+        <Button x:Name="AddEq" Margin="590,26,116,332" Click="AddEq_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="IconImg/EqAdd.png"></ImageBrush>
+            </Button.Background>
+        </Button>
+        <TextBlock Text="Room" FontSize="30" Margin="260,50,255,300" HorizontalAlignment="Center" FontWeight="Bold"></TextBlock>
+        <StackPanel Margin="10,0,535,280" Grid.Column="0" Orientation="Vertical" HorizontalAlignment="Center" Width="227">
             <Label HorizontalAlignment="Center" FontSize="20" Width="186">Enter room Num:</Label>
-            <TextBox x:Name="num"  Width="100" Height="40" ></TextBox>
-            <Button Name="okButton" Click="okButton_Click" IsDefault="True" Width="100">OK</Button>
+            <TextBox Name="_num"  Width="100" Height="40" ></TextBox>
+            <Button Name="okButton" Click="okButton_Click" IsDefault="True" Width="100" Height="32" Margin="64,0,63,0">OK</Button>
         </StackPanel>
 
+        <TextBlock Text="Nurse name:" Margin="72,166,0,187" HorizontalAlignment="Left" FontSize="20" Width="123"></TextBlock>
+        <TextBlock x:Name="nurseName" Margin="222,166,385,187" FontSize="20"></TextBlock>
+
+        <StackPanel Margin="400,119,0,0" >
+            <TextBlock Margin="0,30,10,0" Text="Patients" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold"></TextBlock>
+            <ListView Margin="0,50,10,10" Height="200" x:Name="lvPatients">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <WrapPanel>
+                            <TextBlock Text="Name: " />
+                            <TextBlock Text="{Binding name}" FontWeight="Bold" />
+                            <TextBlock Text=" Date: " />
+                            <TextBlock Text="{Binding tDate}" FontWeight="Bold" />
+                        </WrapPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+
+        <TextBlock Margin="93,227,0,142" Text="Equipment" HorizontalAlignment="Left" FontSize="20" FontWeight="Bold" Width="102"></TextBlock>
+        <StackPanel Margin="0,277,390,0">
+            <ListView x:Name="lvEq" Height="135">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <WrapPanel>
+                            <TextBlock Text="Name: " />
+                            <TextBlock Text="{Binding equipmentName}" FontWeight="Bold" />
+                            <TextBlock Text="   Amount: " />
+                            <TextBlock Text="{Binding equipmenAmount}" FontWeight="Bold" />
+                        </WrapPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
 
 
     </Grid>

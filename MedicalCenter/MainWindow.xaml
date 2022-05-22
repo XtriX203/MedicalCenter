@@ -7,10 +7,19 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBlock Text="Medical Center" FontSize="27" Margin="260,50,255,0" VerticalAlignment="Top" HorizontalAlignment="Center"></TextBlock>
+        <Border >
+            <Border.Background>
+                <ImageBrush ImageSource="IconImg/background1.png"></ImageBrush>
+            </Border.Background>
+        </Border>
+        <TextBlock Text="Weather in Tel Aviv:" Margin="514,22,144,358" Foreground="Aqua"></TextBlock>
+        <TextBlock x:Name="temperature" Margin="625,10,51,363" Background="Aqua" HorizontalAlignment="Center"></TextBlock>
+        <TextBlock Text="Medical Center" FontSize="32" Margin="260,50,255,0" VerticalAlignment="Top" HorizontalAlignment="Center" FontWeight="Bold"></TextBlock>
         <Button x:Name="_equipment" Margin="150,180,520,160" Content="Equipment" FontSize="20" Click="_equipment_Click"></Button>
         <Button x:Name="_nurses" Margin="350,180,320,160" Content="Nurses" FontSize="20" Click="_nurses_Click"></Button>
         <Button x:Name="_patients" Margin="550,180,100,160" Content="Patients" FontSize="20" Click="_patients_Click"></Button>
         <Button x:Name="_room" Margin="350,300,320,43" Content="Room" FontSize="20" Click="_room_Click"></Button>
+        <Button x:Name="_users" Content="Users" Click="_users_Click" Margin="550,303,100,40" FontSize="20" Visibility="Hidden"></Button>
+        <Button x:Name="quit" Content="Close" Margin="62,50,622,333" FontSize="20" Click="quit_Click"></Button>
     </Grid>
 </Window>

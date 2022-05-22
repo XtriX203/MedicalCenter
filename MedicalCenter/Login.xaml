@@ -7,13 +7,19 @@
         mc:Ignorable="d"
         Title="Login" Height="450" Width="800">
     <Grid>
-        <TextBlock Text="username" Margin="200,100,470,280" FontSize="24"></TextBlock>
-        <TextBox x:Name="UserName" Margin="350,100,200,280"></TextBox>
+        <Border Margin="-92,10,-106,0">
+            <Border.Background>
+                <ImageBrush ImageSource="IconImg/background3.png"></ImageBrush>
+            </Border.Background>
+        </Border>
+        <TextBlock Text="username" Margin="244,100,426,280" FontSize="24"></TextBlock>
+        <TextBox x:Name="UserName" Margin="350,100,236,280"></TextBox>
         
-        <TextBlock Text="password" Margin="200,200,470,180" FontSize="24"></TextBlock>
-        <PasswordBox x:Name="Password" Margin="350,200,200,180"></PasswordBox>
+        <TextBlock Text="password" Margin="244,200,426,180" FontSize="24"></TextBlock>
+        <PasswordBox x:Name="Password" Margin="350,200,236,180"></PasswordBox>
 
-        <Button x:Name="login" Margin="200,273,470,105" Content="LogIn" FontSize="24" FontWeight="Bold" Click="login_Click"></Button>
-        <Button x:Name="register" Margin="425,273,236,105" Content="Register" FontSize="24" FontWeight="Bold" Click="register_Click"></Button>
+        <Button x:Name="login" Margin="200,273,470,85" Content="LogIn" FontSize="24" FontWeight="Bold" Click="login_Click"></Button>
+        <Button x:Name="register" Margin="425,273,236,85" Content="Register" FontSize="24" FontWeight="Bold" Click="register_Click"></Button>
     </Grid>
 </Window>
+    

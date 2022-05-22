@@ -23,25 +23,55 @@ namespace MedicalCenter
     public partial class Room : Window
     {
         ServiceReference.WebService1SoapClient c = new ServiceReference.WebService1SoapClient();
-        public Room()
+        bool isInspector;
+        public Room(bool isIns)
         {
             InitializeComponent();
+            if(isInspector)
+            {
+                AddEq.Visibility = Visibility.Hidden;
+
+            }
+            isInspector = isIns;
         }
 
         private async void okButton_Click(object sender, RoutedEventArgs e)
         {
-            //add SQL Query with join for all room parameters
-            string sqlStatement = "SELECT DISTINCT Patients.pName ,Nurses.nurseName FROM Rooms"+
-            $"INNER JOIN Patients ON Patients.roomNum = {num}"+
-            $"INNER JOIN Nurses ON Nurses.room = {num};"+
-            $"INNER JOIN EquipmentPerRoom ON EquipmentPerRoom.roonNum = {num}";
-            DataSet ds1= await c.queryDataSetAsync(sqlStatement);
-            sqlStatement = $"SELECT EqName FROM Equipment WHERE code in(SELECT equipmentCode FROM EquipmentPerRoom WHERE roonNum={num}); ";
-            DataSet ds2 = await c.queryDataSetAsync(sqlStatement);
-            RoomData rd=new RoomData();
-            rd.patientName = ds1.Tables[0].Columns["pName"].ToString();
-            rd.nurseName= ds1.Tables[0].Columns["nurseName"].ToString();
-            rd.equipmenAmount.AddRange( ds1.Tables[0].Columns["equipmentAmount"]);
+            int number = 0;
+            //check if number is insrted
+            if (int.TryParse(_num.Text.Trim(), out number))
+            {
+
+                MedicalCenter.ServiceReference.RoomData ret = await c.getRoomDataAsync(int.Parse(_num.Text));
+                
+                
+                lvPatients.ItemsSource = ret.patients;
+                nurseName.Text = ret.nurseName;
+                lvEq.ItemsSource = ret.equipments;
+                
+                
+            }
+            else
+            {
+                //not a number
+                MessageBox.Show("Please insert integer.");
+            }
+        }
+
+        private void back_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow nw = new MainWindow(isInspector);
+            nw.Show();
+            this.Close();
+        }
+
+        private void AddEq_Click(object sender, RoutedEventArgs e)
+        {
+           
+            //call new window
+            addEqToRoom addEq = new addEqToRoom();
+            addEq.Show();
+            
         }
     }
 }

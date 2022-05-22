@@ -7,7 +7,12 @@
         mc:Ignorable="d"
         Title="Equipment" Height="450" Width="800">
     <Grid>
-        <DataGrid x:Name="dg" Margin="78,80,84,80" FontSize="18"></DataGrid>
+        <Border >
+            <Border.Background>
+                <ImageBrush ImageSource="IconImg/background2.jpg"></ImageBrush>
+            </Border.Background>
+        </Border>
+        <DataGrid x:Name="dg" Margin="249,80,249,80" FontSize="18"></DataGrid>
         <TextBlock Text="Equipment" FontSize="28" HorizontalAlignment="Center" VerticalAlignment="Top"></TextBlock>
         <Button x:Name="back" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Back" FontSize="20" Click="back_Click"></Button>
         <Button x:Name="addRow" Margin="100,10,630,350" Click="addRow_Click">

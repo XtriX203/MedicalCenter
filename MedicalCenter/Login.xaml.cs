@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Text.RegularExpressions;
+using System.Data;
+using System.Data.SqlClient;
 
 
 namespace MedicalCenter
@@ -35,7 +37,9 @@ namespace MedicalCenter
             
             if (r)
             {
-                MainWindow mw = new MainWindow();
+               
+                bool isInspector= await c.IsInspectorAsync(UserName.Text);
+                MainWindow mw = new MainWindow(isInspector);
                 mw.Show();
                 this.Close();
             }
@@ -50,6 +54,7 @@ namespace MedicalCenter
             MatchCollection matches = rx.Matches(Password.Password);
             if (matches.Count > 0)
             {
+                
                 int r = await c.RegisterAsync(UserName.Text, Password.Password);
                 if(r>0)
                 {
