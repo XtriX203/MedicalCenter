@@ -8,7 +8,7 @@ the options that are available:
 -Delete rows <br />
 -add rows <br />
 
-#Technologies used:
+# Technologies used:
 Frontend: WPF written in C# and XAML <br />
 Backend: Webservices written in C# using asmx <br />
 DataBase: Microsoft SQL server <br />
